@@ -1,1 +1,175 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
+  <!-- Navigation -->
+  <header class="navbar">
+    <a href="#hero" class="logo" aria-label="Go to home section">
+      <img src="images/logo.png" alt="Keith Logo" class="logo-img" />
+    </a>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#faqs">FAQ's</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Home / Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-image-wrapper">
+        <img src="images/home_photo.png" alt="Profile Visual" class="hero-img" />
+      </div>
+      <div class="hero-content">
+        <!-- Main Name Branding -->
+        <div class="brand-heading">
+          <h1 class="brand-title">KEETH</h1>
+          <span class="brand-subtitle">ANDREI MALICDEM</span>
+        </div>
+
+        <!-- Skill / Specialty Capsules -->
+        <div class="badge-container">
+          <span class="badge">Photography</span>
+          <span class="badge">Videography</span>
+          <span class="badge">Graphic Design</span>
+          <span class="badge">Photo &amp; Video Editing</span>
+          <span class="badge">Marketing</span>
+          <span class="badge">Advertisements</span>
+        </div>
+
+        <!-- Updated Paragraph Text -->
+        <p class="hero-description">I am a passionate digital creator specializing in visual storytelling, media production, and compelling marketing strategies. From shooting and editing captivating visuals to executing end-to-end media campaigns, I craft engaging digital experiences that elevate brand identity and resonate with audiences.</p>
+
+        <div class="hero-btns">
+          <a href="#gallery" class="btn primary-btn">View Gallery</a>
+          <a href="#contact" class="btn secondary-btn">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section dark-bg">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p class="section-subtitle">A visual showcase of recent creative work, design systems, and digital assets.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-image-placeholder">Media Item 01</div>
+          <div class="gallery-info">
+            <h3>Visual Brand Design</h3>
+            <p>Digital Media / Branding</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-image-placeholder">Media Item 02</div>
+          <div class="gallery-info">
+            <h3>UI/UX Mobile App</h3>
+            <p>Interface Design</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-image-placeholder">Media Item 03</div>
+          <div class="gallery-info">
+            <h3>Creative Photography</h3>
+            <p>Visual Production</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-image-placeholder">Media Item 04</div>
+          <div class="gallery-info">
+            <h3>Web Interface Prototype</h3>
+            <p>Frontend Design</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ's Section -->
+  <section id="faqs" class="section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-subtitle">Answers to common queries regarding services and collaborations.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">What services do you provide? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>I specialize in end-to-end digital content creation, UI/UX design, visual marketing collateral, and modern web development.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What is your typical project timeline? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Timelines depend on the project scope. Smaller design tasks take 1–2 weeks, while full digital campaigns or site builds take 3–5 weeks.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Are you available for freelance or ongoing work? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Yes, I am available for freelance projects, retainer work, and contract collaborations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section dark-bg">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I focus on executing high-quality visual content and digital products that combine function with user-centered aesthetics.</p>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p class="section-subtitle">Interested in working together? Send a message to start a project conversation.</p>
+      <form class="contact-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn primary-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
+
+  <footer>
+    <p>&copy; 2026 Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
