@@ -1,10 +1,11 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Keethcreates | Portfolio</title>
+  
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -37,13 +38,11 @@
         <img src="images/home_photo.png" alt="Profile Visual" class="hero-img" />
       </div>
       <div class="hero-content">
-        <!-- Main Name Branding -->
         <div class="brand-heading">
           <h1 class="brand-title">KEETH</h1>
           <span class="brand-subtitle">ANDREI MALICDEM</span>
         </div>
 
-        <!-- Skill / Specialty Capsules -->
         <div class="badge-container">
           <span class="badge">Photography</span>
           <span class="badge">Videography</span>
@@ -53,7 +52,6 @@
           <span class="badge">Advertisements</span>
         </div>
 
-        <!-- Updated Paragraph Text -->
         <p class="hero-description">I am a passionate digital creator specializing in visual storytelling, media production, and compelling marketing strategies. From shooting and editing captivating visuals to executing end-to-end media campaigns, I craft engaging digital experiences that elevate brand identity and resonate with audiences.</p>
 
         <div class="hero-btns">
@@ -68,36 +66,46 @@
   <section id="gallery" class="section dark-bg">
     <div class="container">
       <h2>Gallery</h2>
-      <p class="section-subtitle">A visual showcase of recent creative work, design systems, and digital assets.</p>
+      <p class="section-subtitle">A visual showcase of recent creative work, media production, and digital campaigns.</p>
+
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="gallery-image-placeholder">Media Item 01</div>
-          <div class="gallery-info">
-            <h3>Visual Brand Design</h3>
-            <p>Digital Media / Branding</p>
+        
+        <!-- Category 1: Photographs (Mini-Carousel with Fog Overlay) -->
+        <a href="photographs.html" class="gallery-card-link" aria-label="View Photographs Portfolio">
+          <div class="gallery-item">
+            <div class="gallery-image-wrapper mini-carousel" id="photoCarousel">
+              <!-- Cycling Images -->
+              <img src="images/photos/photo_1.jpg" alt="Photographs Showcase 1" class="gallery-img active" onerror="this.style.display='none';" />
+              <img src="images/photos/photo_2.jpg" alt="Photographs Showcase 2" class="gallery-img" onerror="this.style.display='none';" />
+              <img src="images/photos/photo_3.jpg" alt="Photographs Showcase 3" class="gallery-img" onerror="this.style.display='none';" />
+              <img src="images/photos/photo_4.jpg" alt="Photographs Showcase 4" class="gallery-img" onerror="this.style.display='none';" />
+              
+              <!-- Soft Foggy Gradient Overlay -->
+              <div class="fog-overlay"></div>
+
+              <div class="gallery-image-placeholder">Photographs Visual</div>
+            </div>
+            <div class="gallery-info">
+              <h3>Photographs &rarr;</h3>
+              <p>High-resolution commercial shots, creative portraits, and brand photography.</p>
+            </div>
           </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-image-placeholder">Media Item 02</div>
-          <div class="gallery-info">
-            <h3>UI/UX Mobile App</h3>
-            <p>Interface Design</p>
+        </a>
+
+        <!-- Category 2: Graphic Designs -->
+        <a href="graphic-designs.html" class="gallery-card-link" aria-label="View Graphic Designs Portfolio">
+          <div class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="images/designs/design_1.jpg" alt="Graphic Designs Showcase" class="gallery-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="gallery-image-placeholder">Graphic Designs Visual</div>
+            </div>
+            <div class="gallery-info">
+              <h3>Graphic Designs &rarr;</h3>
+              <p>Custom publication materials, brand assets, and digital design collateral.</p>
+            </div>
           </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-image-placeholder">Media Item 03</div>
-          <div class="gallery-info">
-            <h3>Creative Photography</h3>
-            <p>Visual Production</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-image-placeholder">Media Item 04</div>
-          <div class="gallery-info">
-            <h3>Web Interface Prototype</h3>
-            <p>Frontend Design</p>
-          </div>
-        </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -161,13 +169,12 @@
     </div>
   </section>
 
-  <!-- Back to Top Button -->
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
     ↑
   </button>
 
   <footer>
-    <p>&copy; 2026 Portfolio. All rights reserved.</p>
+    <p>&copy; 2026 Keethcreates. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>

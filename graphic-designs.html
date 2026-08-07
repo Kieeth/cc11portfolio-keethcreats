@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Designs | Keethcreates</title>
+  
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html#hero" class="logo" aria-label="Go to home section">
+      <img src="images/logo.png" alt="Keith Logo" class="logo-img" />
+    </a>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#hero">Home</a></li>
+        <li><a href="index.html#gallery" class="active">Gallery</a></li>
+        <li><a href="index.html#faqs">FAQ's</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="section dark-bg" style="min-height: 100vh;">
+    <div class="container">
+      <a href="index.html#gallery" class="back-btn">
+        &larr; Back to Gallery
+      </a>
+
+      <h2>Graphic Designs</h2>
+      <p class="section-subtitle">Publication materials, brand identity assets, and digital marketing graphics.</p>
+
+      <!-- Graphic Designs Multi-Image Grid (4 Per Row, Pure Image) -->
+      <div class="photo-gallery-grid">
+        
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/designs/design_1.jpg" alt="Social Media Pubmat" class="lightbox-trigger" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="gallery-image-placeholder">Design 01</div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/designs/design_2.jpg" alt="Visual Brand Guidelines" class="lightbox-trigger" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="gallery-image-placeholder">Design 02</div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/designs/design_3.jpg" alt="Digital Marketing Poster" class="lightbox-trigger" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="gallery-image-placeholder">Design 03</div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-wrapper">
+            <img src="images/designs/design_4.jpg" alt="Vector Logo Mockup" class="lightbox-trigger" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="gallery-image-placeholder">Design 04</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Fullscreen Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img class="lightbox-content" id="lightboxImg" alt="Expanded Design View" />
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
+
+  <footer>
+    <p>&copy; 2026 Keethcreates. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let current = "";
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 120;
+      const sectionTop = section.offsetTop - 80;
       if (window.scrollY >= sectionTop) {
         current = section.getAttribute("id");
       }
@@ -82,4 +82,43 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
+  // 6. Lightbox Fullscreen Image Preview
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxCaption = document.getElementById("lightboxCaption");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
+
+  if (lightbox && lightboxImg) {
+    lightboxTriggers.forEach((img) => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.alt || "Photograph Preview";
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("active");
+    };
+
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  // 7. Mini Carousel Auto Switcher for Photographs Gallery Card
+  const carouselContainer = document.getElementById("photoCarousel");
+  if (carouselContainer) {
+    const carouselImages = carouselContainer.querySelectorAll(".gallery-img");
+    let currentIndex = 0;
+
+    setInterval(() => {
+      carouselImages[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % carouselImages.length;
+      carouselImages[currentIndex].classList.add("active");
+    }, 2800);
+  }
 });
