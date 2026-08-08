@@ -935,20 +935,31 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .hero-container,
-  .about-grid-layout,
-  .contact-grid-layout {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Moves profile image above text on mobile screens */
+  .hero-image-wrapper {
+    order: -1;
+    margin-bottom: 1.5rem;
   }
 
   .hero-content {
+    order: 1;
     text-align: center;
   }
 
   .badge-container,
   .hero-btns {
     justify-content: center;
+  }
+
+  .about-grid-layout,
+  .contact-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .about-photo-wrapper {
