@@ -109,12 +109,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 7. Mini Carousel Auto Switcher for Gallery Cards (Photos & Designs)
+  // 7. Mini Carousel Auto Switcher with Fail-Safe Image Filtering
   const setupMiniCarousel = (containerId) => {
     const carouselContainer = document.getElementById(containerId);
-    if (carouselContainer) {
-      const carouselImages = carouselContainer.querySelectorAll(".gallery-img");
-      if (carouselImages.length === 0) return;
+    if (!carouselContainer) return;
+
+    // Delayed check to allow onerror handlers to execute if images fail to load
+    setTimeout(() => {
+      const carouselImages = Array.from(
+        carouselContainer.querySelectorAll(".gallery-img")
+      ).filter((img) => img.style.display !== "none");
+
+      if (carouselImages.length <= 1) return;
 
       let currentIndex = 0;
       setInterval(() => {
@@ -122,9 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
         currentIndex = (currentIndex + 1) % carouselImages.length;
         carouselImages[currentIndex].classList.add("active");
       }, 2800);
-    }
+    }, 100);
   };
 
   setupMiniCarousel("photoCarousel");
   setupMiniCarousel("designCarousel");
+  setupMiniCarousel("videoCarousel");
 });
