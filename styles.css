@@ -339,10 +339,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-.gallery-item:hover .gallery-img {
-  transform: scale(1.05);
-}
-
 .gallery-image-placeholder {
   display: none;
   width: 100%;

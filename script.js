@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img.addEventListener("click", () => {
         lightbox.classList.add("active");
         lightboxImg.src = img.src;
-        lightboxCaption.textContent = img.alt || "Photograph Preview";
+        lightboxCaption.textContent = img.alt || "Portfolio View";
       });
     });
 
@@ -109,16 +109,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 7. Mini Carousel Auto Switcher for Photographs Gallery Card
-  const carouselContainer = document.getElementById("photoCarousel");
-  if (carouselContainer) {
-    const carouselImages = carouselContainer.querySelectorAll(".gallery-img");
-    let currentIndex = 0;
+  // 7. Mini Carousel Auto Switcher for Gallery Cards (Photos & Designs)
+  const setupMiniCarousel = (containerId) => {
+    const carouselContainer = document.getElementById(containerId);
+    if (carouselContainer) {
+      const carouselImages = carouselContainer.querySelectorAll(".gallery-img");
+      if (carouselImages.length === 0) return;
 
-    setInterval(() => {
-      carouselImages[currentIndex].classList.remove("active");
-      currentIndex = (currentIndex + 1) % carouselImages.length;
-      carouselImages[currentIndex].classList.add("active");
-    }, 2800);
-  }
+      let currentIndex = 0;
+      setInterval(() => {
+        carouselImages[currentIndex].classList.remove("active");
+        currentIndex = (currentIndex + 1) % carouselImages.length;
+        carouselImages[currentIndex].classList.add("active");
+      }, 2800);
+    }
+  };
+
+  setupMiniCarousel("photoCarousel");
+  setupMiniCarousel("designCarousel");
 });

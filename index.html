@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keethcreates | Portfolio</title>
   
-  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -92,11 +92,19 @@
           </div>
         </a>
 
-        <!-- Category 2: Graphic Designs -->
+        <!-- Category 2: Graphic Designs (Mini-Carousel with Fog Overlay) -->
         <a href="graphic-designs.html" class="gallery-card-link" aria-label="View Graphic Designs Portfolio">
           <div class="gallery-item">
-            <div class="gallery-image-wrapper">
-              <img src="images/designs/design_1.jpg" alt="Graphic Designs Showcase" class="gallery-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="gallery-image-wrapper mini-carousel" id="designCarousel">
+              <!-- Cycling Images -->
+              <img src="images/designs/design_1.jpg" alt="Graphic Designs Showcase 1" class="gallery-img active" onerror="this.style.display='none';" />
+              <img src="images/designs/design_2.jpg" alt="Graphic Designs Showcase 2" class="gallery-img" onerror="this.style.display='none';" />
+              <img src="images/designs/design_3.jpg" alt="Graphic Designs Showcase 3" class="gallery-img" onerror="this.style.display='none';" />
+              <img src="images/designs/design_4.jpg" alt="Graphic Designs Showcase 4" class="gallery-img" onerror="this.style.display='none';" />
+              
+              <!-- Soft Foggy Gradient Overlay -->
+              <div class="fog-overlay"></div>
+
               <div class="gallery-image-placeholder">Graphic Designs Visual</div>
             </div>
             <div class="gallery-info">
