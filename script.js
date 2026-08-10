@@ -151,37 +151,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ----------------------------------------------------
-     7. Pull-to-Refresh / Scroll Down Reload
+     7. Pull-to-Refresh / Scroll Down Reload (Mobile Fix)
   ---------------------------------------------------- */
   let startY = 0;
-  let currentY = 0;
+  let pullDistance = 0;
   let isPulling = false;
-  const PULL_THRESHOLD = 150; // Touch drag distance in px to reload
+  const PULL_THRESHOLD = 120; // Lowered threshold for better mobile sensitivity
 
-  document.addEventListener('touchstart', (e) => {
-    if (window.scrollY === 0) {
+  window.addEventListener('touchstart', (e) => {
+    // Check if user is at the top of the page (supporting different mobile browser engines)
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+    if (scrollTop <= 1) {
       startY = e.touches[0].clientY;
       isPulling = true;
+      pullDistance = 0;
     }
   }, { passive: true });
 
-  document.addEventListener('touchmove', (e) => {
+  window.addEventListener('touchmove', (e) => {
     if (!isPulling) return;
-    currentY = e.touches[0].clientY;
+    
+    const currentY = e.touches[0].clientY;
+    pullDistance = currentY - startY;
   }, { passive: true });
 
-  document.addEventListener('touchend', () => {
+  window.addEventListener('touchend', () => {
     if (!isPulling) return;
 
-    const pullDistance = currentY - startY;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    if (window.scrollY === 0 && pullDistance > PULL_THRESHOLD) {
+    // Trigger reload if pulled downward beyond threshold while at top
+    if (scrollTop <= 5 && pullDistance > PULL_THRESHOLD) {
       window.location.reload();
     }
 
+    // Reset touch variables
     isPulling = false;
     startY = 0;
-    currentY = 0;
+    pullDistance = 0;
   });
-
 });
