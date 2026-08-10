@@ -20,7 +20,7 @@
 }
 
 html, body {
-  overscroll-behavior-y: contain; /* Smooth pull-to-refresh feel on mobile */
+  overscroll-behavior-y: contain; /* Pull-to-refresh mobile feel */
 }
 
 html {
@@ -844,6 +844,7 @@ body {
 }
 
 .lightbox-caption {
+  display: none; /* Hides text labels in view mode */
   margin-top: 1rem;
   color: var(--text-main);
   font-size: 1.1rem;

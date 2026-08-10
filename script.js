@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.setAttribute('aria-hidden', 'false');
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
+        
+        // Ensures no text label displays under full-screen image view
         if (lightboxCaption) {
-          lightboxCaption.textContent = img.alt || '';
+          lightboxCaption.textContent = '';
         }
       }
     });
