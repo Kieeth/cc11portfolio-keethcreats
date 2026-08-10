@@ -133,25 +133,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Disable Keyboard Shortcuts for DevTools & View Source
   document.addEventListener('keydown', (e) => {
-    // Prevent Escape Key from Closing Lightbox if hit, or pass through
     if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
       closeLightbox();
     }
 
-    // Prevent F12 key
     if (e.key === 'F12') {
       e.preventDefault();
     }
 
-    // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Inspect Element / Console)
     if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
       e.preventDefault();
     }
 
-    // Prevent Ctrl+U (View Source)
     if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
       e.preventDefault();
     }
+  });
+
+  /* ----------------------------------------------------
+     7. Pull-to-Refresh / Scroll Down Reload
+  ---------------------------------------------------- */
+  let startY = 0;
+  let currentY = 0;
+  let isPulling = false;
+  const PULL_THRESHOLD = 150; // Touch drag distance in px to reload
+
+  document.addEventListener('touchstart', (e) => {
+    if (window.scrollY === 0) {
+      startY = e.touches[0].clientY;
+      isPulling = true;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!isPulling) return;
+    currentY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    if (!isPulling) return;
+
+    const pullDistance = currentY - startY;
+
+    if (window.scrollY === 0 && pullDistance > PULL_THRESHOLD) {
+      window.location.reload();
+    }
+
+    isPulling = false;
+    startY = 0;
+    currentY = 0;
   });
 
 });

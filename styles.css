@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+html, body {
+  overscroll-behavior-y: contain; /* Enables pull-to-refresh behavior on mobile */
+}
+
 html {
   scroll-behavior: smooth;
 }
