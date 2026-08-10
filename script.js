@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking any nav link
+    // Close mobile menu on nav link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -43,12 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close Lightbox on Close Button Click
   if (lightboxClose) {
     lightboxClose.addEventListener('click', closeLightbox);
   }
 
-  // Close Lightbox on Background Click
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ----------------------------------------------------
-     3. Back to Top Button Functionality
+     3. Back to Top Button
   ---------------------------------------------------- */
   const backToTopBtn = document.getElementById('backToTop');
 
@@ -87,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ----------------------------------------------------
-     4. Mini-Carousel Auto Cycling (Gallery Cards)
+     4. Mini-Carousel Auto Cycling
   ---------------------------------------------------- */
   const carousels = document.querySelectorAll('.mini-carousel');
 
@@ -114,10 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
       questionBtn.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
         
-        // Close all other open FAQ items
         faqItems.forEach(otherItem => otherItem.classList.remove('active'));
 
-        // Toggle current item
         if (!isActive) {
           item.classList.add('active');
         }
@@ -128,10 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ----------------------------------------------------
      6. DevTools & Right-Click Security Protections
   ---------------------------------------------------- */
-  // Disable Right Click Context Menu
   document.addEventListener('contextmenu', (e) => e.preventDefault());
 
-  // Disable Keyboard Shortcuts for DevTools & View Source
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
       closeLightbox();
@@ -151,17 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ----------------------------------------------------
-     7. Pull-to-Refresh / Scroll Down Reload (Mobile Fix)
+     7. Pull-to-Refresh / Scroll Down Reload (Mobile Engine Support)
   ---------------------------------------------------- */
   let startY = 0;
   let pullDistance = 0;
   let isPulling = false;
-  const PULL_THRESHOLD = 120; // Lowered threshold for better mobile sensitivity
+  const PULL_THRESHOLD = 120;
 
   window.addEventListener('touchstart', (e) => {
-    // Check if user is at the top of the page (supporting different mobile browser engines)
     const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    
     if (scrollTop <= 1) {
       startY = e.touches[0].clientY;
       isPulling = true;
@@ -171,24 +163,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('touchmove', (e) => {
     if (!isPulling) return;
-    
     const currentY = e.touches[0].clientY;
     pullDistance = currentY - startY;
   }, { passive: true });
 
   window.addEventListener('touchend', () => {
     if (!isPulling) return;
-
     const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    // Trigger reload if pulled downward beyond threshold while at top
     if (scrollTop <= 5 && pullDistance > PULL_THRESHOLD) {
       window.location.reload();
     }
 
-    // Reset touch variables
     isPulling = false;
     startY = 0;
     pullDistance = 0;
   });
+
+  /* ----------------------------------------------------
+     8. Dynamic Scroll-Spy Navbar Active Link Highlighting
+  ---------------------------------------------------- */
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  if (sections.length > 0 && navAnchorLinks.length > 0) {
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      const scrollPosition = window.scrollY + 200;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      navAnchorLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  }
+
 });

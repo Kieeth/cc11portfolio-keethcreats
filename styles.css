@@ -20,7 +20,7 @@
 }
 
 html, body {
-  overscroll-behavior-y: contain; /* Enables pull-to-refresh behavior on mobile */
+  overscroll-behavior-y: contain; /* Smooth pull-to-refresh feel on mobile */
 }
 
 html {
@@ -35,7 +35,7 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar (Compact Height & Spacing) */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -68,7 +68,7 @@ body {
   opacity: 0.9;
 }
 
-/* Centered Navbar Pill Navigation */
+/* Centered Navbar Navigation Pill */
 .nav-links {
   display: flex;
   list-style: none;
@@ -245,7 +245,7 @@ body {
   background-color: #1e293b;
 }
 
-/* Dedicated Back Button for Sub-Pages */
+/* Dedicated Back Button */
 .back-btn {
   background-color: var(--bg-primary);
   color: var(--text-main);
@@ -267,12 +267,12 @@ body {
   border-color: var(--accent);
 }
 
-/* Generic Section Styles with Top Offset Clearance */
+/* Generic Section Styles */
 .section {
   padding: 8rem 2rem 6rem;
 }
 
-/* Off-White Sections */
+/* Off-White Light Background Sections */
 .dark-bg {
   background-color: var(--bg-secondary);
   color: var(--text-dark);
@@ -302,7 +302,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* About Section Alignment & Image Framing */
+/* About Section Grid Alignment & Image Framing */
 .about-grid-layout {
   display: grid;
   grid-template-columns: 1.25fr 0.85fr;
@@ -336,14 +336,13 @@ body {
   display: block;
 }
 
-/* Clickable Gallery Cards Styling */
+/* Clickable Gallery Cards */
 .gallery-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
-/* Main Gallery Section */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -456,7 +455,7 @@ body {
   opacity: 0.5;
 }
 
-/* Masonry Layout for Sub-Pages */
+/* Masonry Layout */
 .masonry-gallery {
   column-count: 4;
   column-gap: 1.25rem;
@@ -492,7 +491,7 @@ body {
   transform: scale(1.03);
 }
 
-/* Videography Redirect Thumbnail Grid Layout */
+/* Videography Redirect Grid Layout */
 .video-redirect-grid {
   display: flex;
   flex-wrap: wrap;
@@ -539,7 +538,7 @@ body {
   transform: scale(1.06);
 }
 
-/* Play Button Badge for Video Thumbnails */
+/* Play Button Icon Overlay */
 .play-button-icon {
   position: absolute;
   top: 50%;
@@ -570,7 +569,7 @@ body {
   opacity: 0;
 }
 
-/* Title-Only Hover Overlay */
+/* Video Hover Title Overlay */
 .video-hover-overlay {
   position: absolute;
   top: 0;
@@ -671,7 +670,7 @@ body {
   line-height: 1.25;
 }
 
-/* Contact Section Grid & Form Layout */
+/* Contact Grid & Form Layout */
 .contact-grid-layout {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -815,7 +814,7 @@ body {
   text-align: center;
 }
 
-/* Lightbox Fullscreen Modal */
+/* Lightbox Modal */
 .lightbox {
   display: none;
   position: fixed;
@@ -866,7 +865,7 @@ body {
   color: var(--accent);
 }
 
-/* FAQ Section */
+/* FAQ Accordions */
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -922,7 +921,7 @@ body {
   font-size: 1.05rem;
 }
 
-/* Back to Top Button */
+/* Back to Top Floating Button */
 .back-to-top {
   position: fixed;
   bottom: 2rem;
@@ -963,7 +962,7 @@ footer {
   font-size: 0.95rem;
 }
 
-/* Mobile Responsive Adjustments */
+/* Mobile Responsiveness */
 @media (max-width: 1024px) {
   .masonry-gallery {
     column-count: 3;
@@ -991,7 +990,7 @@ footer {
     justify-content: center;
   }
 
-  /* About Section & Contact Grid Mobile Layout */
+  /* Moves image above story & orgs grid on mobile screens */
   .about-grid-layout {
     display: flex;
     flex-direction: column;
@@ -999,7 +998,7 @@ footer {
   }
 
   .about-image-column {
-    order: -1; /* Positions image above intro story & organizations grid on mobile */
+    order: -1;
   }
 
   .about-text-content {
