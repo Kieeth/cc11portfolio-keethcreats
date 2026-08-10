@@ -78,8 +78,8 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  white-space: nowrap; /* Prevents text wrapping inside the pill */
-  max-width: max-content; /* Dynamically expands pill container */
+  white-space: nowrap;
+  max-width: max-content;
 }
 
 .nav-links a {
@@ -90,7 +90,7 @@ body {
   padding: 0.35rem 0.75rem;
   border-radius: 8px;
   transition: all 0.2s ease;
-  white-space: nowrap; /* Keeps link labels strictly on one line */
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -535,6 +535,37 @@ body {
   transform: scale(1.06);
 }
 
+/* Play Button Badge for Video Thumbnails */
+.play-button-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding-left: 3px;
+  z-index: 5;
+  pointer-events: none;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.video-redirect-card:hover .play-button-icon {
+  transform: translate(-50%, -50%) scale(1.15);
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-primary);
+  opacity: 0; /* Smoothly fades out play button on hover to show full title overlay */
+}
+
 /* Title-Only Hover Overlay */
 .video-hover-overlay {
   position: absolute;
@@ -549,6 +580,7 @@ body {
   justify-content: center;
   padding: 1.5rem;
   opacity: 0;
+  z-index: 4;
   transition: opacity 0.3s ease;
 }
 
@@ -570,7 +602,7 @@ body {
   transform: translateY(0);
 }
 
-/* Organizations & Experience Logo Gallery (Invisible Cards) */
+/* Organizations & Experience Logo Gallery */
 .org-experience-wrapper {
   margin-top: 2.5rem;
 }
@@ -940,7 +972,6 @@ footer {
     text-align: center;
   }
 
-  /* Moves profile image above text on mobile screens */
   .hero-image-wrapper {
     order: -1;
     margin-bottom: 1.5rem;
