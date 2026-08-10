@@ -563,7 +563,7 @@ body {
   background-color: var(--accent);
   border-color: var(--accent);
   color: var(--bg-primary);
-  opacity: 0; /* Smoothly fades out play button on hover to show full title overlay */
+  opacity: 0;
 }
 
 /* Title-Only Hover Overlay */
@@ -987,7 +987,21 @@ footer {
     justify-content: center;
   }
 
-  .about-grid-layout,
+  /* About Section & Contact Grid Mobile Layout */
+  .about-grid-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .about-image-column {
+    order: -1; /* Positions image above intro story & organizations grid on mobile */
+  }
+
+  .about-text-content {
+    order: 1;
+  }
+
   .contact-grid-layout {
     grid-template-columns: 1fr;
     gap: 2.5rem;
